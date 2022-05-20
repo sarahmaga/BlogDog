@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog Dog</title>
+    <meta name="author" content="Equipe BlogDog">
+
+    <!--Link CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b4aa3dd337.js" crossorigin="anonymous"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/meuPerfil.js"></script>
+    <link rel="stylesheet" href="style/header_footer.css">
+    <link rel="stylesheet" href="style/style_dicas.css">
+
+    <script>
+        // // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+        window.location.href = LOGIN_URL;
+        }
+
+        function initPage() {
+        // Associa a função de logout ao botão
+        document.getElementById('btn_logout').addEventListener('click', logoutUser);
+        document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+    </script>
+</head>
+
+<body onload="init()">
+    <!--Cabeçalho-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row tester">
+                <div class="col-12 header_area">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                            <img src="imgs/home/logo.png" class="logo">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-10">
+                            <div class="menu-item">
+                                <nav class="nav cabecalho">
+                                    <input type="checkbox" id="perfil">
+                                    <!-- <label for="checkbox" class="logar">
+                                    <i class="fas fa-user-circle" id="btn_perfil"></i>
+                                    <i class="fas fa-sign-in-alt" id="btn_logout"></i>
+                                </label> -->
+                                <input type="checkbox" id="menuToggle">
+                                <label for="menuToggle" class="menu-icon">
+                                    <i class="fa fa-bars"></i>
+                                    <i class="fa fa-times-circle"></i>
+                                </label>
+
+                                <ul>
+                                    <a class="flex-sm-fill text-sm-center nav-link  active" href="home.html">Página
+                                        Inicial</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="adocao.html">Adoção</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="denuncias.html">Abandono</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Agressão</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link ongs" href="ongs.html">ONGs
+                                        parceiras</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link"id="btn_perfil" >Meu perfil</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" id="btn_logout">Sair</a>
+                                </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="center">Mural de dicas </h1>
+                <div class="row" id="tela">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="card card-dica">
+                            <img src="imgs/home/logo.png" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Como fazer grama para seu gatinho em casa!
+                                </h5>
+                                <p class="card-text">Você sabia que é muito importante para seu gato comer grama?
+                                    Aprenda o porquê dessa importância e a fazer graminha com milho de pipoca no link a
+                                    seguir!</p> <a href="https://www.youtube.com/watch?v=MvHtExpvFMI" target="_blank">
+                                    Link para o vídeo</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <h4 class="subtit">Tem alguma boa dica? Compartilhe conosco!</h1>
+                <form id="form-dica">
+
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="inputId">ID</label>
+                            <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-8">
+                            <label for="inputNome">Nome</label>
+                            <input type="text" class="form-control" id="inputNome" placeholder="Informe seu nome CORRETAMENTE e COMPLETO">
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">
+                            <label for="inputNome">Título da dica (*)</label>
+                            <input type="text" class="form-control" id="inputTit" placeholder="Título" required>
+                        </div>
+                        <div class="col-sm-8">
+                            <label for="inputNome">Conteúdo da dica (*)</label>
+                            <input type="text" class="form-control" id="inputCont" placeholder="Conteúdo" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <small>(*) Campos obrigatórios</small>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="botoes">
+                        <div class="col-sm-12">
+                            <input type="button" class="btn btn-success" id="btnInsert" value="Enviar">
+                            <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar dica">
+                            <input type="button" class="btn btn-danger" id="btnDelete" value="Cancelar dica">
+
+                        </div>
+                    </div>
+
+
+                </form>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                <script src="scripts/app3.js"></script>
+                <script>
+                    function exibeDica() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#tela").html("");
+
+                        // Popula a tabela com os registros do banco de dados
+
+                        for (i = 0; i < dbc.data.length; i++) {
+                            let dica = dbc.data[i];
+                            $("#tela").append(`<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="card card-dica">
+                                <img src="imgs/home/logo.png " class="card-img-top" alt="dica">
+                                <div class="card-body">
+                                    <h5 class="card-title">${dica.titulo}</h5>
+                                    <p class="card-text">${dica.conteudo}  <br>Autor: ${dica.nome}</p>
+                                </div>
+                                </div>    
+                            </div>             
+                                                    
+                                                </tr `);
+                        }
+
+
+
+
+                    }
+
+                    function init() {
+                        // Adiciona funções para tratar os eventos 
+                        $("#btnInsert").click(function () {
+                            // Verfica se o formulário está preenchido corretamente
+                            if (!$('#form-dica')[0].checkValidity()) {
+                                displayMessage("Preencha o formulário corretamente.");
+                                return;
+                            }
+
+                            // Obtem os valores dos campos do formulário
+                            let campoNome = $("#inputNome").val();
+                            let campoTitulo = $("#inputTit").val();
+                            let campoConteudo = $('#inputCont').val();
+
+
+
+                            let dica = {
+                                nome: campoNome,
+                                titulo: campoTitulo,
+                                conteudo: campoConteudo,
+
+                            };
+
+                            insertDica(dica);
+
+                            // Reexibe os dicas
+                            exibeDica();
+
+                            // Limpa o formulario
+                            $("#form-dica")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Alterar
+                        $("#btnUpdate").click(function () {
+                            // Obtem os valores dos campos do formulário
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um dica para ser alterado.");
+                                return;
+                            }
+                            let campoNome = $("#inputNome").val();
+                            let campoTelefone = $("#inputTelefone").val();
+                            let campoEmail = $("#inputEmail").val();
+                            let campoCidade = $("#inputCidade").val();
+                            let campoEspecie = $("#inputEspecie").val();
+                            let campoCategoria = $("#inputCategoria").val();
+                            let campoInfo = $('#inputSite').val();
+                            let dica = {
+                                nome: campoNome,
+                                telefone: campoTelefone,
+                                email: campoEmail,
+                                cidade: campoCidade,
+                                especie: campoEspecie,
+                                categoria: campoCategoria,
+                                info: campoInfo
+                            };
+
+                            updatedica(parseInt(campoId), dica);
+
+                            // Reexibe os dicas
+                            exibeDica();
+
+                            // Limpa o formulario
+                            $("#form-dica")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Excluir
+                        $("#btnDelete").click(function () {
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um dica a ser excluído.");
+                                return;
+                            }
+                            deletedica(parseInt(campoId));
+
+                            // Reexibe os dicas
+                            exibeDica();
+
+                            // Limpa o formulario
+                            $("#form-dica")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Listar dicas
+                        $("#btnClear").click(function () {
+                            $("#form-dica")[0].reset();
+                        });
+
+                        // Oculta a mensagem de aviso após alguns segundos
+                        $('#msg').bind("DOMSubtreeModified", function () {
+                            window.setTimeout(function () {
+                                $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                                    $(this).remove();
+                                });
+                            }, 5000);
+                        });
+
+                        // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                        $("#grid-dicas").on("click", "tr", function (e) {
+                            let linhadica = this;
+                            colunas = linhadica.querySelectorAll("td");
+
+                            $("#inputId").val(colunas[0].innerText);
+                            $("#inputNome").val(colunas[1].innerText);
+                            $("#inputTelefone").val(colunas[2].innerText);
+                            $("#inputEmail").val(colunas[3].innerText);
+                            $("#inputCidade").val(colunas[4].innerText);
+                            $("#inputEspecie").val(colunas[5].innerText);
+                            $("#inputCategoria").val(colunas[5].innerText);
+                            $("#inputSite").val(colunas[6].innerText);
+                        });
+
+                        exibeDica();
+                    }
+                </script>
+
+            </div>
+        </div>
+        </div>
+        </div>
+    </main>
+
+    <!--Rodapé-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 footer_area">
+                    <p>BlogDog - Todos os direitos reservados - 2020</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- BootStrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

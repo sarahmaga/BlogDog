@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="scripts/login.js"></script>
+    <link rel="stylesheet" href="style/style_adocao.css">
+    <script src="scripts/meuPerfil.js"></script>
+    <script src="https://kit.fontawesome.com/b4aa3dd337.js" crossorigin="anonymous"></script>
+    <script src="scripts/adocao.js"></script>
+    
+    <script>
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function initPage() {
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+            document.getElementById('btn_perfil').addEventListener('click', Perfil);
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+    </script>
+
+</head>
+<!--Cabeçalho-->
+<header class="header">
+    <div class="container-fluid">
+        <div class="row tester">
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/home/logo.png" class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10">
+                        <div class="menu-item">
+                            <nav class="nav cabecalho">
+                                <input type="checkbox" id="perfil">
+                                <!-- <label for="checkbox" class="logar">
+                                    <i class="fas fa-user-circle" id="btn_perfil"></i>
+                                    <i class="fas fa-sign-in-alt" id="btn_logout"></i>
+                                </label> -->
+                                <input type="checkbox" id="menuToggle">
+                                <label for="menuToggle" class="menu-icon">
+                                    <i class="fa fa-bars"></i>
+                                    <i class="fa fa-times-circle"></i>
+                                </label>
+
+                                <ul>
+                                    <a class="flex-sm-fill text-sm-center nav-link  active" href="home.html">Página
+                                        Inicial</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="adocao.html">Adoção</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="denuncias.html">Abandono</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Agressão</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link ongs" href="ongs.html">ONGs
+                                        parceiras</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link"id="btn_perfil" >Meu perfil</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" id="btn_logout">Sair</a>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<main class="container main">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/1.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">CRIOULA</h5>
+                            <div class="card-text">
+                                <p>Idade: ADULTA JOVEM</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos1.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/2.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">ALFA
+                            </h5>
+                            <div class="card-text">
+                                <p>Idade: ADULTA JOVEM</p>
+                                <p>Porte: GRANDE</p>
+                            </div>
+                            <a href="infos2.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/3.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">LORE</h5>
+                            <div class="card-text">
+                                <p>Idade: ADULTA JOVEM</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos3.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/4.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">PINTA</h5>
+                            <div class="card-text">
+                                <p>Idade: APROXIMADAMENTE 1 ANO</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos4.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/5.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">MANCHA</h5>
+                            <div class="card-text">
+                                <p>Idade: ADULTO JOVEM</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos5.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/6.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">JUCA</h5>
+                            <div class="card-text">
+                                <p>Idade: ADULTO</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos6.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card card-adocao">
+                        <img src="imgs/home/adocao/7.jpeg" class="card-img-top border-bottom" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">BRANCO</h5>
+                            <div class="card-text">
+                                <p>Idade: APROXIMADAMENTE 1 ANO</p>
+                                <p>Porte: PEQUENO</p>
+                            </div>
+                            <a href="infos7.html" class="btn btn-warning">Adotar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="text-sub">Anuncios Recentes</h1>
+
+    <div id="JSarea">
+        <!-- area do javascript -->
+    </div>
+
+    <div class="subtit2">
+        <h1 id="text">Conhece algum animalzinho que está precisando de um lar? Clique em "Sim" para cadastra-lo e
+            adiciona-lo em nosso site!</h1>
+        <a href="anuncio.html" class="btn btn-warning">Sim</a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                <p>BlogDog - Todos os direitos reservados - 2020</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+    </script>
+    <script>
+        (function () {
+            window.onload = function () {
+                new BlipChat()
+                .withAppKey('cGVkcm8yODo5NjgxZjNkMS1hZWU3LTQxNTctOTk5OC0yMjcxNmFmYTgzNjY=')
+                .withButton({"color":"#2CC3D5","icon":""})
+                .withCustomCommonUrl('https://chat.blip.ai/')
+                .build();
+            }
+        })();
+    </script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+
+</html>

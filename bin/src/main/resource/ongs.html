@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <script src="https://kit.fontawesome.com/b4aa3dd337.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style/header_footer.css">
+    <link rel="stylesheet" href="style/style_ongs.css">
+    <script src="scripts/login.js"></script>
+    <script src="scripts/meuPerfil.js"></script>
+    <script>
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function initPage() {
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+            document.getElementById('btn_perfil').addEventListener('click', Perfil);
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+
+    </script>
+
+</head>
+
+
+<body onload="init()">
+
+    <!--Cabeçalho-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row tester">
+                <div class="col-12 header_area">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                            <img src="imgs/home/logo.png" class="logo">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-10">
+                            <div class="menu-item">
+                                <nav class="nav cabecalho">
+                                    <input type="checkbox" id="perfil">
+                                    <label for="checkbox" class="logar">
+                                        <i class="fas fa-user-circle" id="btn_perfil"></i>
+                                        <i class="fas fa-sign-in-alt" id="btn_logout"></i>
+                                    </label>
+                                    <input type="checkbox" id="menuToggle">
+                                    <label for="menuToggle" class="menu-icon">
+                                        <i class="fa fa-bars"></i>
+                                        <i class="fa fa-times-circle"></i>
+                                    </label>
+
+                                    <ul>
+                                        <a class="flex-sm-fill text-sm-center nav-link  active" href="home.html">Página
+                                            Inicial</a>
+                                        <a class="flex-sm-fill text-sm-center nav-link" href="adocao.html">Adoção</a>
+                                        <a class="flex-sm-fill text-sm-center nav-link"
+                                            href="denuncias.html">Abandono</a>
+                                        <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Agressão</a>
+                                        <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                                        <a class="flex-sm-fill text-sm-center nav-link ongs" href="ongs.html">ONGs
+                                            parceiras</a>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="center"> Ongs Parceiras </h1>
+                        <table id="grid-parceiross" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td scope="col">#</td>
+                                    <td scope="col">Nome da ONG</td>
+                                    <td scope="col">Cidade</td>
+                                    <td scope="col">Telefone</td>
+                                </tr>
+                            </thead>
+                            <tbody id="table-parceiros">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <script src="scripts/parceiros.js"></script>
+                <script>
+                    function exibeParceiro() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#table-parceiros").html("");
+
+                        // Popula a tabela com os registros do banco de dados
+
+                        for (i = 0; i < db.data.length; i++) {
+                            let parceiro = db.data[i];
+                            $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                        <td>${parceiro.ong}</td>
+                                                        <td>${parceiro.cidade}</td>
+                                                        <td>${parceiro.telefone}</td>
+                                                    </tr>`);
+                        }
+
+                    }
+
+                    function init() {
+                        // Adiciona funções para tratar os eventos 
+                        $("#btnInsert").click(function () {
+                            // Verfica se o formulário está preenchido corretamente
+                            if (!$('#form-parceiro')[0].checkValidity()) {
+                                displayMessage("Preencha o formulário corretamente.");
+                                return;
+                            }
+
+                            // Obtem os valores dos campos do formulário
+                            let campoNome = $("#inputNome").val();
+                            let campoTelefone = $("#inputTelefone").val();
+                            let campoEmail = $('#inputEmail').val();
+                            let campoCidade = $("#inputCidade").val();
+                            let campoOng = $('#inputOng').val();
+                            let campoInfo = $('#inputSite').val();
+                            let parceiro = {
+                                nome: campoNome,
+                                telefone: campoTelefone,
+                                email: campoEmail,
+                                cidade: campoCidade,
+                                ong: campoOng,
+                                info: campoInfo
+                            };
+
+                            insertParceiro(parceiro);
+
+                            // Reexibe os parceiros
+                            exibeParceiro();
+
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Alterar
+                        $("#btnUpdate").click(function () {
+                            // Obtem os valores dos campos do formulário
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um parceiro para ser alterado.");
+                                return;
+                            }
+                            let campoNome = $("#inputNome").val();
+                            let campoTelefone = $("#inputTelefone").val();
+                            let campoEmail = $("#inputEmail").val();
+                            let campoCidade = $("#inputCidade").val();
+                            let campoOng = $("#inputOng").val();
+                            let campoInfo = $('#inputSite').val();
+                            let parceiro = {
+                                nome: campoNome,
+                                telefone: campoTelefone,
+                                email: campoEmail,
+                                cidade: campoCidade,
+                                ong: campoOng,
+
+                                info: campoInfo
+                            };
+
+                            updateParceiro(parseInt(campoId), parceiro);
+
+                            // Reexibe os parceiros
+                            exibeParceiro();
+
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Excluir
+                        $("#btnDelete").click(function () {
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um parceiro a ser excluído.");
+                                return;
+                            }
+                            deleteParceiro(parseInt(campoId));
+
+                            // Reexibe os parceiros
+                            exibeParceiro();
+
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+
+                        // Intercepta o click do botão Listar parceiros
+                        $("#btnClear").click(function () {
+                            $("#form-parceiro")[0].reset();
+                        });
+
+                        // Oculta a mensagem de aviso após alguns segundos
+                        $('#msg').bind("DOMSubtreeModified", function () {
+                            window.setTimeout(function () {
+                                $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                                    $(this).remove();
+                                });
+                            }, 5000);
+                        });
+
+                        // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                        $("#grid-parceiros").on("click", "tr", function (e) {
+                            let linhaparceiro = this;
+                            colunas = linhaparceiro.querySelectorAll("td");
+
+                            $("#inputId").val(colunas[0].innerText);
+                            $("#inputNome").val(colunas[1].innerText);
+                            $("#inputTelefone").val(colunas[2].innerText);
+                            $("#inputEmail").val(colunas[3].innerText);
+                            $("#inputCidade").val(colunas[4].innerText);
+                            $("#inputOng").val(colunas[5].innerText);
+
+                            $("#inputSite").val(colunas[6].innerText);
+                        });
+
+                        exibeParceiro();
+                    }
+                </script>
+
+
+                <h3 class="subtit">Quer ser nosso parceiro também?</h3>
+                <a href="parceiros.html" class="btn btn-warning" id="buttonOng">Sim</a>
+            </div>
+
+        </div>
+
+        </div>
+
+    </main>
+
+    <!--Rodapé-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 footer_area">
+                    <p>BlogDog - Todos os direitos reservados - 2020</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
