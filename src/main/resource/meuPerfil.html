@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog Dog</title>
+    <meta name="author" content="Equipe BlogDog">
+
+    <!--Link CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b4aa3dd337.js" crossorigin="anonymous"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/meuPerfil.js"></script>
+    <link rel="stylesheet" href="style/header_footer.css">
+    <link rel="stylesheet" href="style/style_meuPerfil.css">
+
+    <script>
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+        
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+            exibeContatos();
+            exibeContatoss();
+            exibeParceiro();
+            exibeDica();
+            exibeRelatos();
+            exibeRelatos2();
+            
+
+
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+    </script>
+</head>
+
+<body>
+    <!--Cabeçalho-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row tester">
+                <div class="col-12 header_area">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                            <img src="imgs/home/logo.png" class="logo">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-10">
+                            <div class="menu-item">
+                                <nav class="nav cabecalho">
+                                    <input type="checkbox" id="perfil">
+                                    <!-- <label for="checkbox" class="logar">
+                                    <i class="fas fa-user-circle" id="btn_perfil"></i>
+                                    <i class="fas fa-sign-in-alt" id="btn_logout"></i>
+                                </label> -->
+                                <input type="checkbox" id="menuToggle">
+                                <label for="menuToggle" class="menu-icon">
+                                    <i class="fa fa-bars"></i>
+                                    <i class="fa fa-times-circle"></i>
+                                </label>
+
+                                <ul>
+                                    <a class="flex-sm-fill text-sm-center nav-link  active" href="home.html">Página
+                                        Inicial</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="adocao.html">Adoção</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="denuncias.html">Abandono</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Agressão</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link ongs" href="ongs.html">ONGs
+                                        parceiras</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link"id="btn_perfil" >Meu perfil</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" id="btn_logout">Sair</a>
+                                </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 id="text-initial">Olá <span id="nomeUsuario">, seja bem-vindo!</span></h1>
+                        <h1 class="subtit2">Minhas ONGs cadastradas:</h1>
+                        <table id="grid-parceiros" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td scope="col">#</td>
+                                    <td scope="col">Nome da ONG</td>
+                                    <td scope="col">Cidade</td>
+                                </tr>
+                            </thead>
+                            <tbody id="table-parceiros">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="ongs.html" class="btn btn-warning">Acessar página de Ongs parceiras</a>
+                    </div>
+                    <div class="col-sm-12">
+                        <h1 class="subtit2">Minhas denúncias de abandono:</h1>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="grid-contatos" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Telefone</th>
+                                            <th scope="col">E-mail</th>
+                                            <th scope="col">Cidade</th>
+                                            <th scope="col">Espécie do animal</th>
+                                            <th scope="col">Tipo de denúncia</th>
+                                            <th scope="col">Informações complementares</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-contatos">
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="denuncias.html" class="btn btn-warning">Acessar página de denúncias de
+                                    abandono</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <h1 class="subtit2">Meus relatos de abandono:</h1>
+                        <table id="grid-relatos" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Espécie do animal</th>
+                                    <th scope="col">Ação tomada</th>
+                                    <th scope="col">Ajuda necessária</th>
+                                    <th scope="col">Informações complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-relatos">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="denuncias.html" class="btn btn-warning">Acessar página de relatos de abandono</a>
+
+
+                    </div>
+                    <div class="col-sm-12">
+                        <h1 class="subtit2">Minhas denúncias de agressão:</h1>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="grid-contatos2" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Telefone</th>
+                                            <th scope="col">E-mail</th>
+                                            <th scope="col">Cidade</th>
+                                            <th scope="col">Espécie do animal</th>
+                                            <th scope="col">Tipo de denúncia</th>
+                                            <th scope="col">Informações complementares</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-contatos2">
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="relatos.html" class="btn btn-warning">Acessar página de denúncias de
+                                    agressão</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <h1 class="subtit2">Meus relatos de agressão:</h1>
+                        <table id="grid-relatos2" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Espécie do animal</th>
+                                    <th scope="col">Ação tomada</th>
+                                    <th scope="col">Ajuda necessária</th>
+                                    <th scope="col">Informações complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-relatos2">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="relatos.html" class="btn btn-warning">Acessar página de relatos de agressão</a>
+
+
+                    </div>
+                    <div class="col-sm-12">
+                        <h1 class="subtit2">Minhas dicas adicionadas:</h1>
+                        <div class="row" id="tela">
+
+                        </div>
+                        <a href="dicas.html" class="btn btn-warning botao">Acessar página de dicas</a>
+                    </div>
+                </div>
+
+                <script src="scripts/app.js"></script>
+                <script>
+                    function exibeContatos() {
+                    // Remove todas as linhas do corpo da tabela
+                    $("#table-contatos").html("");
+
+                    // Popula a tabela com os registros do banco de dados
+                    if (usuarioCorrente.login == 'admin') {
+                        for (i = 0; i < dbd.data.length; i++) {
+                            let contato = dbd.data[i];
+                            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                        }
+
+                    } else {
+
+                        for (i = 4; i < dbd.data.length; i++) {
+                            let contato = dbd.data[i];
+                            if (usuarioCorrente.nome == contato.nome) {
+                                $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                            }
+                        }
+
+                        {
+
+
+                        }
+
+                    }
+
+                }
+
+
+
+                </script>
+
+                <script>
+                    function exibeRelatos() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#table-relatos").html("");
+
+                        // Popula a tabela com os registros do banco de dados
+                        if (usuarioCorrente.login == 'admin') {
+                            for (i = 0; i < dbr.data.length; i++) {
+                                let relato = dbr.data[i];
+                                $("#table-relatos").append(`<tr><td scope="row">${relato.id}</td>
+                                                        <td>${relato.nome}</td>
+                                                        <td>${relato.telefone}</td>
+                                                        <td>${relato.email}</td>
+                                                        <td>${relato.cidade}</td>
+                                                        <td>${relato.especie}</td>
+                                                        <td>${relato.acao}</td>
+                                                        <td>${relato.ajuda}</td>
+                                                        <td>${relato.info}</td>
+                                                    </tr>`);
+                            }
+
+                        } else {
+
+                            for (i = 1; i < dbr.data.length; i++) {
+                                let relato = dbr.data[i];
+                                if (usuarioCorrente.nome == relato.nome) {
+                                    $("#table-relatos").append(`<tr><td scope="row">${relato.id}</td>
+                                                        <td>${relato.nome}</td>
+                                                        <td>${relato.telefone}</td>
+                                                        <td>${relato.email}</td>
+                                                        <td>${relato.cidade}</td>
+                                                        <td>${relato.especie}</td>
+                                                        <td>${relato.acao}</td>
+                                                        <td>${relato.ajuda}</td>
+                                                        <td>${relato.info}</td>
+                                                    </tr>`);
+                                }
+                            }
+                        }
+
+                    }
+                </script>
+                <script src="scripts/app2.js"></script>
+                <script>
+                    function exibeContatoss() {
+                    // Remove todas as linhas do corpo da tabela
+                    $("#table-contatos2").html("");
+
+                    // Popula a tabela com os registros do banco de dados
+                    if (usuarioCorrente.login == 'admin') {
+                        for (i = 0; i < dbdd.data.length; i++) {
+                            let contato = dbdd.data[i];
+                            $("#table-contatos2").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                        }
+
+                    } else {
+
+                        for (i = 2; i < dbdd.data.length; i++) {
+                            let contato = dbdd.data[i];
+                            if (usuarioCorrente.nome == contato.nome) {
+                                $("#table-contatos2").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                            }
+                        }
+
+                        {
+
+
+                        }
+
+                    }
+
+                }
+
+
+
+                </script>
+
+                <script>
+                    function exibeRelatos2() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#table-relatos2").html("");
+
+                        // Popula a tabela com os registros do banco de dados
+                        if (usuarioCorrente.login == 'admin') {
+                            for (i = 0; i < dbrr.data.length; i++) {
+                                let relato = dbrr.data[i];
+                                $("#table-relatos2").append(`<tr><td scope="row">${relato.id}</td>
+                                                         <td>${relato.nome}</td>
+                                                         <td>${relato.telefone}</td>
+                                                         <td>${relato.email}</td>
+                                                         <td>${relato.cidade}</td>
+                                                         <td>${relato.especie}</td>
+                                                         <td>${relato.acao}</td>
+                                                         <td>${relato.ajuda}</td>
+                                                         <td>${relato.info}</td>
+                                                     </tr>`);
+                            }
+
+                        } else {
+
+                            for (i = 1; i < dbrr.data.length; i++) {
+                                let relato = dbrr.data[i];
+                                if (usuarioCorrente.nome == relato.nome) {
+                                    $("#table-relatos2").append(`<tr><td scope="row">${relato.id}</td>
+                                                         <td>${relato.nome}</td>
+                                                         <td>${relato.telefone}</td>
+                                                         <td>${relato.email}</td>
+                                                         <td>${relato.cidade}</td>
+                                                         <td>${relato.especie}</td>
+                                                         <td>${relato.acao}</td>
+                                                         <td>${relato.ajuda}</td>
+                                                         <td>${relato.info}</td>
+                                                     </tr>`);
+                                }
+                            }
+                        }
+
+                    }
+                </script>
+                <script src="scripts/parceiros.js"></script>
+                <script>
+                    function exibeParceiro() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#table-parceiros").html("");
+    
+                        // Popula a tabela com os registros do banco de dados
+                        if (usuarioCorrente.login == 'admin') {
+                            for (i = 0; i < db.data.length; i++) {
+                                let parceiro = db.data[i];
+                                $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                        <td>${parceiro.ong}</td>
+                                                        <td>${parceiro.cidade}</td>
+                                                    </tr>`);
+                            }
+    
+                        } else {
+                            for (i =3; i < db.data.length; i++){
+                            let parceiro = db.data[i]; 
+                                if(usuarioCorrente.nome == parceiro.nome){
+                                    $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                        <td>${parceiro.ong}</td>
+                                                        <td>${parceiro.cidade}</td>
+                                                    </tr>`);
+                                }
+                                
+                                
+                            }
+                        }
+    
+                    }
+                </script>
+                <script src="scripts/app3.js"></script>
+                <script>
+
+function exibeDica() {
+                         // Remove todas as linhas do corpo da tabela
+                         $("#tela").html("");
+     
+                         // Popula a tabela com os registros do banco de dados
+                         if (usuarioCorrente.login == 'admin') {
+                             for (i = 0; i < dbc.data.length; i++) {
+                                 let dica = dbc.data[i];
+                                 
+                                    $("#tela").append(`<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                                     <div class="card">
+                                     <img src="imgs/home/logo.png " class="card-img-top" alt="">
+                                     <div class="card-body">
+                                         <h5 class="card-title">${dica.titulo}</h5>
+                                         <p class="card-text">${dica.conteudo}  <br>Autor: ${dica.nome}</p>
+                                     </div>
+                                     </div>    
+                                 </div>             
+                                                         
+                                                     </tr `);
+                                 
+                                 
+                             } 
+                            }else {
+                                for (i =3; i < dbc.data.length; i++) {
+                                let dica = dbc.data[i];
+                                if(usuarioCorrente.nome == dica.nome){
+                                    $("#tela").append(`<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                                     <div class="card">
+                                     <img src="imgs/home/logo.png " class="card-img-top" alt="">
+                                     <div class="card-body">
+                                         <h5 class="card-title">${dica.titulo}</h5>
+                                         <p class="card-text">${dica.conteudo}  <br>Autor: ${dica.nome}</p>
+                                     </div>
+                                     </div>    
+                                 </div>             
+                                                         
+                                                     </tr `);
+                                }
+                                
+                            }
+                            } 
+                     }               
+                </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            </div>
+        </div>
+    </main>
+
+
+    <!--Rodapé-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 footer_area">
+                    <p>BlogDog - Todos os direitos reservados - 2020</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- BootStrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

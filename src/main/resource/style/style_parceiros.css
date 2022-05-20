@@ -1,0 +1,28 @@
+#btn_perfil{
+	cursor:pointer;
+}
+#btn_logout{
+	cursor:pointer;
+}
+.center {
+    text-align: center;
+    font-family: cursive;
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width:320px) and (max-width:991px){
+    .main {
+        margin-top: 150px;
+    }
+}
+
+.footer {
+    margin-top: 20px;
+    width: 100%;
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    .grid-parceiros {
+        margin-right: 30px;
+    }
+}

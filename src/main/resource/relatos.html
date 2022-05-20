@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog Dog</title>
+    <meta name="author" content="Equipe BlogDog">
+
+    <!--Link CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b4aa3dd337.js" crossorigin="anonymous"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/meuPerfil.js"></script>
+    <script src="scripts/index.js"></script>
+    <link rel="stylesheet" href="style/header_footer.css">
+    <link rel="stylesheet" href="style/style_relatos.css">
+
+    <script>
+        // // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+        window.location.href = LOGIN_URL;
+        }
+
+        function initPage() {
+        // Associa a função de logout ao botão
+        document.getElementById('btn_logout').addEventListener('click', logoutUser);
+        document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+    </script>
+</head>
+
+<body onload="init(),init2()">
+    <!--Cabeçalho-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row tester">
+                <div class="col-12 header_area">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                            <img src="imgs/home/logo.png" class="logo">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-10">
+                            <div class="menu-item">
+                                <nav class="nav cabecalho">
+                                    <input type="checkbox" id="perfil">
+                                    <!-- <label for="checkbox" class="logar">
+                                    <i class="fas fa-user-circle" id="btn_perfil"></i>
+                                    <i class="fas fa-sign-in-alt" id="btn_logout"></i>
+                                </label> -->
+                                <input type="checkbox" id="menuToggle">
+                                <label for="menuToggle" class="menu-icon">
+                                    <i class="fa fa-bars"></i>
+                                    <i class="fa fa-times-circle"></i>
+                                </label>
+
+                                <ul>
+                                    <a class="flex-sm-fill text-sm-center nav-link  active" href="home.html">Página
+                                        Inicial</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="adocao.html">Adoção</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="denuncias.html">Abandono</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Agressão</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link ongs" href="ongs.html">ONGs
+                                        parceiras</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link"id="btn_perfil" >Meu perfil</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link" id="btn_logout">Sair</a>
+                                </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="center"> Agressão de animais </h1>
+                <p class="texto"> <br>
+                </p>
+                <p class="texto">Para minimizar o máximo possível o problema o site permite que voce denuncie uma
+                    situação de agressão à um animal ou relate que resgatou-o e necessita de algum tipo de auxílio de
+                    nossas organizações.</p>
+
+                <h1 class="text-title"> Denunciar </h1>
+
+                <section class="section--container__responsive">
+                    <section class="section--mainrow__responsive first--section">
+                        <form class="form--register" action="http://localhost:4567/cadastraragressao" method="post" id="form-add">
+        
+                            <p style="padding-top: 10px;">Nome:</p>
+                            <input class="form-control" type="text" name="nome_agressao" value="" placeholder="Ex: Jose Ferreira">
+
+                            <p style="padding-top: 10px;">Telefone:</p>
+                            <input class="form-control" type="text" name="telefone_agressao" value="" placeholder="Ex: (31)992314321">
+                            
+                            <p style="padding-top: 10px;">Email:</p>
+                            <input class="form-control" type="text" name="email_agressao" value=""
+                                placeholder="Ex: roberto@hotmail.com">
+                            
+                            <p style="padding-top: 10px;">Cidade:</p>
+                            <input class="form-control" type="text" name="cidade_agressao" value=""
+                                placeholder="Ex: São Paulo">
+
+                                <p style="padding-top: 10px;">Animal:</p>
+                            <input class="form-control" type="text" name="animal_agressao" value=""
+                                placeholder="Ex: Gato">
+
+                                <p style="padding-top: 10px;">Informacões Complementares:</p>
+                            <input class="form-control" type="text" name="info_agressao" value=""
+                                placeholder="Ex: O animal esta magro e ferido">
+                           
+                                <div class="row" style="padding-top: 20px; padding-left: 15px; padding-bottom: 20px;">
+                                <input type="submit" value="Denunciar Agressão" class="btn btn-primary bg-success"
+                                    style="cursor: pointer;">
+                            </div>
+                        </form>
+                    </section>
+                </section>
+                    
+                </form>
+                
+                <div id="AGRESSAO">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <table id="grid-contatos" class="table table-striped">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th scope="col" >#</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">Espécie do animal</th>
+                                        <th scope="col">Informações complementares</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+              
+            <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script src="scripts/app2.js"></script>
+            
+        </div>
+        </div>
+
+    </main>
+
+    <!--Rodapé-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 footer_area">
+                    <p>BlogDog - Todos os direitos reservados - 2020</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

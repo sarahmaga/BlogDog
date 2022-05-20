@@ -1,0 +1,37 @@
+#btn_perfil{
+	cursor:pointer;
+}
+#btn_logout{
+	cursor:pointer;
+}
+.center{
+    text-align: center;
+    font-family: cursive;
+}
+
+#grid-contatos tbody {
+    cursor: pointer;
+}
+#grid-parceiros tbody {
+    cursor: pointer;
+}
+#grid-relatos tbody {
+    cursor: pointer;
+}
+
+.subtit {
+    font-family: cursive;
+    margin-top: 20px;
+}
+
+#buttonOng {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: cursive;
+}
+
+@media screen and (min-width:320px) and (max-width:991px){
+    .main {
+        margin-top: 150px;
+    }
+}
